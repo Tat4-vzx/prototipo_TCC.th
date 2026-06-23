@@ -28,9 +28,6 @@ public class FeedBackDisplay extends JFrame {
             } else {
                 FeedBackDAO feedbackDAO = new FeedBackDAO();
                 feedbackDAO.salvarFeedBack(feedback);
-
-                JOptionPane.showMessageDialog(null, "FeedBack enviado com sucesso!");
-
             }
         });
 

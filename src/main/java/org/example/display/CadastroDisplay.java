@@ -24,23 +24,23 @@ public class CadastroDisplay extends  JFrame {
         JLabel lblSenha = new JLabel("Senha: ");
         JTextField textSenha = new JTextField();
 
-
         JButton bntSalvar = new JButton("Fazer cadastro");
 
-        String nome = textNome.getText();
-        String email = textEmail.getText();
-        String senha = textSenha.getText();
 
         bntSalvar.addActionListener(e -> {
+            String nome = textNome.getText();
+            String email = textEmail.getText();
+            String senha = textSenha.getText();
             if (nome.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Insira seu nome");
             } else if (email.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Insira seu email");
             } else if (senha.length() < 6) {
                 JOptionPane.showMessageDialog(null, "Insira sua senha mais de 6 caracteres");
+            } else {
+                CadastroDAO cadastroDAO = new CadastroDAO();
+                cadastroDAO.salvarCadastro(nome, email, senha);
             }
-            FeedBackDisplay feedBackDisplay = new FeedBackDisplay();
-            feedBackDisplay.setVisible(true);
         });
 
         painel.add(lblNome);
